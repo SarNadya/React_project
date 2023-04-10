@@ -3,6 +3,8 @@ import Carousel from 'react-bootstrap/Carousel';
 import img1 from './images/view1.png';
 import img2 from './images/map.png';
 import img3 from './images/view2.png';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -28,6 +30,9 @@ function Home() {
           <Carousel.Caption>
             <h5>Second slide label</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <Link exact to='/form'>
+                <Button> Обратная связь </Button>
+              </Link>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
