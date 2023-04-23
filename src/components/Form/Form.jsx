@@ -20,7 +20,7 @@ function Form() {
   const onSubmit = data => console.log(data);
   return (
     <div>
-      <div className='conteiner'>
+      <div className='wrap'>
         <h1 className='title'>Заполните заявку на обратную связь</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input

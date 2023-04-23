@@ -6,7 +6,7 @@ import img from './images/IMAGE.png';
 
 function Description() {
   return (
-    <div className='conteiner'>
+    <div className='wrap'>
       <Card style={{ width: '300px', margin: '0 auto' }}>
         <Card.Img variant="top" src={img} />
         <Card.Body>
