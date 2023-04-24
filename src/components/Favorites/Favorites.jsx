@@ -5,17 +5,16 @@ import FavItem from './FavItem'
 
 const Favorites = (props) => {
 
-  const context = React.createContext(AppContext)
+  const context = React.useContext(AppContext)
 
-  const onAddCart = (obj) => {
+  const onAddCart = obj => {
     axios.post('https://637f91ca2f8f56e28e904e7d.mockapi.io/cart', obj)
-    context.setCartItems([...props.cartItems, obj]);
+    context.setCartItems([...context.cartItems, obj]);
   }
 
-  const onDeleteFav = (id) => {
-
+  const onDeleteFav = id => {
     axios.delete(`https://637f91ca2f8f56e28e904e7d.mockapi.io/favorites/${id}`)
-    props.setFavorites((fav) => fav.filter(item => item.id !== id));
+    props.setFavorites(fav => fav.filter(item => item.id !== id));
   }
 
 

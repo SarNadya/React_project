@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-import { AppContext } from '../../App';
+import { AppContext } from '../../App'
 
 const Item = (props) => {
 
     const context = React.useContext(AppContext)
 
     const [added, setAdded ] = useState(context.isAdded);
-    const [isFav, setIsFav ] = useState(false);
+    const [isFavorites, setIsFavorites ] = useState(false);
 
     //функция добавления в избранное
     const onClickFavorite =()=>{
-        setIsFav(!isFav);
+        setIsFavorites(!isFavorites);
         let id = props.id;
         let myId = props.myId;
         let title = props.title;
@@ -43,7 +43,8 @@ const Item = (props) => {
                     <div className='card-header py-2 px-3'>
 
                         {
-                          context.isFavorites(props.myId) == true ?
+                          // context.isFavorites(props.myId) == true ?
+                          isFavorites ?
                         <button type='button' className='w-100 btn btn-lg btn-primary'
                           onClick={onClickFavorite}
                         >
@@ -65,10 +66,14 @@ const Item = (props) => {
                         
                         <button type='button' className='w-100 btn btn-lg btn-primary'
                           onClick={onClickAdd}
-                        > { context.isAdded(props.myId) ?
-                        <img width={13}
-                        src={context.isAdded(props.myId) ? '/img/icon.png':'' }
-                        alt=""/>:'Добавить в корзину' }
+                        >
+                        {
+                          added ?
+                          <img width={13}
+                            src={'/img/icon.png'}
+                            alt=""
+                          /> :'Добавить в корзину'
+                        }
                         </button>
                     </div>
 

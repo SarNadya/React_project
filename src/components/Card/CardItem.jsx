@@ -13,7 +13,7 @@ const CardItem = (props) => {
         props.setCartItems(cart => cart.filter(item => item.myId !== obj.myId))
       } else {
         const {data} = await axios.post('https://637f91ca2f8f56e28e904e7d.mockapi.io/cart', obj)
-        props.setCartItems([...props.CartItems, data])
+        props.setCartItems([...props.cartItems, data])
       }
     } catch {
       alert('Произошла ошибка')
@@ -51,10 +51,10 @@ const CardItem = (props) => {
             description={obj.description}
             price={obj.price}
             img={obj.img}
-            addFavorites={(favObj)=>{
+            addFavorites={favObj => {
               onAddFavorites(favObj)
             }}
-            addCart={(cartObj)=>{
+            addCart={cartObj => {
               onAddCart(cartObj)
             }}
           />

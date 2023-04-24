@@ -30,19 +30,19 @@ function App() {
       setCartItems(cartData.data);
     }
     axiosData();
-  }, [])
+  }, [setTours, setFavorites, setCartItems])
 
   const deleteItem = id => {
     axios.delete(`https://637f91ca2f8f56e28e904e7d.mockapi.io/cart/${id}`)
-    setCartItems((cartItems) => cartItems.filter(item => item.id !== id))
+    setCartItems(obj => obj.filter(item => item.id !== id))
   }
 
   const isAdded = myId => {
-    return cartItems.some((item) => item.id === myId)
+    return cartItems.some(obj => obj.id === myId)
   }
 
   const isFavorites = myId => {
-    return favorites.some((item) => item.id === myId)
+    return favorites.some(obj => obj.id === myId)
   }
 
   return (
