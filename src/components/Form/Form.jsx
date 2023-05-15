@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import './Form.css';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup, Tooltip, CircleMarker, Polygon } from 'react-leaflet';
+import axios from 'axios';
 
 const center = [59.939098, 30.315868];
 const centerPolygon = [
@@ -17,7 +18,11 @@ const colorOptions = {color: 'green'}
 
 function Form() {
   const { register, formState: { errors }, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = data => {
+    axios.post('https://637f91ca2f8f56e28e904e7d.mockapi.io/form', data);
+    alert('Заявка отправлена');
+}
+
   return (
     <div>
       <div className='wrap'>
