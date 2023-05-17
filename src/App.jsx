@@ -10,6 +10,7 @@ import Form from './components/Form/Form';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import React from 'react';
+import Footer from './components/Footer/Footer';
 
 export const AppContext = React.createContext({})
 
@@ -89,6 +90,7 @@ function App() {
           </Routes>
         </Router>
       </div>
+      <Footer/>
     </AppContext.Provider>
   );
 }
